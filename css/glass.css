@@ -1,0 +1,65 @@
+.glass-button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.051);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.glass-button a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.glass-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.247);
+    transform: scale(0);
+    transition: transform 0.3s;
+    /* 触碰水波 */
+}
+
+.glass-button:hover::before {
+    transform: scale(1);
+}
+
+.glass-button:active {
+    background: rgba(255, 255, 255, 0);
+    transform: scale(0.85);
+    /* 修改这里，使按钮在按下时缩小到原来的 85% */
+}
+
+
+.glass-button:hover {
+    transform: scale(1.1);
+}
+
+.glass-button::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.538);
+    border-radius: 100%;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.glass-button:active::after {
+    transform: scale(200);
+    opacity: 1;
+}

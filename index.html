@@ -1,5 +1,6 @@
 <!DOCTYPE html> <!-- 声明文档类型为HTML5 -->
 <html lang="zh-CN"> <!-- 设置网页语言为中文 -->
+
 <head>
     <meta charset="UTF-8"> <!-- 设置字符集为UTF-8，确保网页正确显示中文字符 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，使网页在不同设备上都能良好显示 -->
@@ -7,9 +8,127 @@
     <meta name="description" content="网页描述"> <!-- 设置网页描述，有助于搜索引擎优化（SEO） -->
     <meta name="keywords" content="关键词1, 关键词2, 关键词3"> <!-- 设置网页关键词，有助于搜索引擎优化（SEO） -->
     <link rel="stylesheet" href="styles.css"> <!-- 链接外部CSS样式表，用于定义网页的样式 -->
+    <link rel="stylesheet" href="./css/glass.css"> <!-- 链接外部CSS样式表，用于定义网页的样式 -->
     <script src="scripts.js" defer></script> <!-- 链接外部JavaScript脚本，并使用defer属性确保脚本在文档解析完成后执行 -->
+    <style>
+        body {
+            background-image: url(./img/bg.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .ubar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            /* 类似aero效果的背景 */
+            backdrop-filter: blur(5px);
+            /* 模糊效果 */
+            box-shadow: 0px 0px 10px 10px #0000005e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            /* 不换行 */
+            height: 7%;
+            /* 默认高度 */
+            transition: height 0.5s ease;
+            /* 添加高度变化的动画效果 */
+            column-gap: 1vw;
+            /* 添加项目之间的间距 */
+        }
+
+
+        /* 在屏幕宽度小于高度的设备上，高度为10% */
+        @media (max-aspect-ratio: 1/1) {
+            .ubar {
+                height: 10%;
+            }
+        }
+
+        .ubarbutton {
+            height: 75%;
+            aspect-ratio: 1 / 1;
+            /* 保持宽高比为1:1 */
+            position: relative;
+            /* 使内容可以相对于此元素定位 */
+            background: rgba(255, 255, 255, 0.096);
+            backdrop-filter: blur(10px);
+            /* 更重的模糊效果 */
+            border-radius: 25%;
+            /* 25%的圆角 */
+            transition: all 0.25s ease;
+            /* 整体变换流畅 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+        }
+
+        .ubarbutton:hover {
+            transform: scale(1.1);
+            /* 鼠标悬停时内部放大效果 */
+            backdrop-filter: blur(20px);
+            /* 更重的模糊效果 */
+        }
+
+        .ubarbutton:active {
+            transform: scale(0.9);
+            /* 点击后缩小 */
+            background: rgba(200, 200, 200, 0.7);
+            /* 变暗 */
+        }
+
+        /* 如果按钮内部有内容，需要将其定位 */
+        .ubarbutton>* {
+            width: 70%;
+            height: 70%;
+        }
+
+        .ubarbutton>img {
+            height: 70%;
+            width: auto;
+        }
+
+        .launcher {
+            height: auto;
+            width: auto;
+            background: rgba(255, 255, 255, 0.1);
+            /* 类似aero效果的背景 */
+            backdrop-filter: blur(5px);
+            /* 模糊效果 */
+            box-shadow: 0px 0px 10px 10px #0000005e;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            white-space: wrap;
+            /* 不换行 */
+            height: 7%;
+            /* 默认高度 */
+            transition: height 0.5s ease;
+            /* 添加高度变化的动画效果 */
+            column-gap: 1vh;
+            /* 添加项目之间的间距 */
+        }
+        
+    </style>
 </head>
+
 <body>
     <!-- 网页的主体内容将放在这里 -->
+     <div class="launcher">
+    </div>
+    <div class="ubar">
+        <!-- <button class="ubarbutton">
+            <img src="./icon/bar/home.png" alt="主页">
+        </button> -->
+        <button class="ubarbutton">
+            <img src="./icon/bar/launcher.png" alt="启动器">
+        </button>
+    </div>
 </body>
+
 </html>
